@@ -318,7 +318,11 @@ var FIG = {
   Z:'<circle cx="58" cy="22" r="9"/><path d="M58 31 L58 41"/><path d="M46 41 L74 41"/><path d="M58 41 L58 78"/><path d="M52 78 L68 78"/><path d="M54 78 L36 74 L38 104"/><path d="M68 78 L70 128"/><path d="M70 128 L76 128"/><path d="M74 43 L86 32"/><path d="M46 43 L40 60"/>',
   AA:'<path d="M14 132 L14 104 L46 104"/><path d="M46 104 L46 132"/><circle cx="58" cy="22" r="9"/><path d="M58 31 L58 41"/><path d="M46 41 L74 41"/><path d="M58 41 L58 76"/><path d="M52 76 L68 76"/><path d="M52 76 L38 88 L32 104"/><path d="M32 104 L24 104"/><path d="M68 76 L76 104 L74 130"/><path d="M74 130 L82 130"/><path d="M46 43 L40 66"/><path d="M74 43 L80 66"/>',
   AB:'<circle cx="60" cy="28" r="9"/><path d="M60 37 L60 46"/><path d="M46 46 L74 46"/><path d="M60 46 L60 82"/><path d="M50 82 L70 82"/><path d="M50 82 L38 108 L36 128"/><path d="M36 128 L30 128"/><path d="M70 82 L84 108 L86 128"/><path d="M86 128 L92 128"/><path d="M46 48 L30 60"/><path d="M74 48 L90 60"/><path class="motion" d="M18 74 L6 74"/><path class="motion" d="M102 74 L114 74"/>',
-  AC:'<circle cx="60" cy="22" r="9"/><path d="M60 31 L60 41"/><path d="M46 41 L74 41"/><path d="M60 41 L60 78"/><path d="M52 78 L68 78"/><path d="M52 78 L48 130"/><path d="M68 78 L72 130"/><path d="M48 130 L41 130"/><path d="M72 130 L79 130"/><path d="M46 43 L44 60 L54 78"/><path d="M74 43 L76 60 L66 78"/><path class="motion" d="M60 79 A 28 9 0 1 1 60 97 A 28 9 0 1 1 60 79"/>'
+  AC:'<circle cx="60" cy="22" r="9"/><path d="M60 31 L60 41"/><path d="M46 41 L74 41"/><path d="M60 41 L60 78"/><path d="M52 78 L68 78"/><path d="M52 78 L48 130"/><path d="M68 78 L72 130"/><path d="M48 130 L41 130"/><path d="M72 130 L79 130"/><path d="M46 43 L44 60 L54 78"/><path d="M74 43 L76 60 L66 78"/><path class="motion" d="M60 79 A 28 9 0 1 1 60 97 A 28 9 0 1 1 60 79"/>',
+  AE:'<circle cx="36" cy="76" r="8"/><path d="M46 80 L36 76"/><path d="M46 80 L48 130"/><path d="M48 130 L58 130"/><path d="M46 80 L86 98"/><path d="M86 98 L106 130"/><path d="M106 130 L112 130"/>',
+  AF:'<path d="M96 132 L96 56"/><circle cx="92" cy="68" r="8"/><path d="M88 74 L92 68"/><path d="M72 100 L88 74"/><path d="M72 100 L40 100"/><path d="M40 100 L40 130"/><path d="M40 130 L48 130"/>',
+  AG:'<circle cx="28" cy="116" r="8"/><path d="M36 122 L28 116"/><path d="M36 122 L12 100"/><path d="M36 122 L64 124"/><path d="M64 124 L96 108"/><path d="M96 108 L102 103"/>',
+  AH:'<circle cx="20" cy="124" r="8"/><path d="M28 123 L32 122"/><path d="M32 122 L72 122"/><path d="M72 122 L82 98 L94 110"/><path d="M34 122 L60 128"/>'
 };
 
 function svgOf(k){
@@ -377,18 +381,25 @@ var A = {
   highKnees:{n:'原地高抬腿',c:'膝盖抬到髋的高度，落地要轻',e:'放慢速度',f:'Z',fo:['legs','full']},
   stepUp:{n:'台阶踏步',c:'全脚掌踩实台阶，身体别歪向一侧',e:'找矮一点的台阶',f:'AA',fo:['legs']},
   sideStep:{n:'侧滑步',c:'半蹲姿势横向移动，膝盖始终对准脚尖',e:'站直一点，幅度减小',f:'AB',fo:['legs']},
-  hipCircle:{n:'髋部绕环',c:'双手叉腰，用髋画尽可能大的圆，正反各一半时间',e:'幅度减小',f:'AC',fo:['back','full']}
+  hipCircle:{n:'髋部绕环',c:'双手叉腰，用髋画尽可能大的圆，正反各一半时间',e:'幅度减小',f:'AC',fo:['back','full']},
+
+  pushup:{n:'俯卧撑',c:'手在肩正下方，身体一条线，下降时肘部约 45 度夹角',e:'膝盖着地做跪姿俯卧撑',f:'AE',fo:['full']},
+  wallSit:{n:'靠墙静蹲',c:'背贴墙滑到大腿与地面平行，膝盖不超脚尖，保持住',e:'蹲浅一点，时间减半',f:'AF',fo:['legs']},
+  superman:{n:'小燕飞',c:'俯卧，手脚同时抬离地面停 2 秒，脖子别过度后仰',e:'只抬上半身或只抬腿',f:'AG',fo:['back']},
+  reverseCrunch:{n:'反向卷腹',c:'膝盖弯向胸口，用腹部发力把骨盆卷离地面',e:'幅度减小，不起骨盆',f:'AH',fo:['full']}
 };
 
 var BASE_IDS = {
   desk:['neckSide','shoulderRoll','scapSqueeze','chestOpen','armCircle','sideReach','trunkTwist','seatStand','calfRaise','hipFlexStretch'],
   home:['catCow','gluteBridge','plank','sidePlank','birdDog','deadBug','childPose','supineTwist','squat','lunge'],
-  outdoor:['briskWalk','highKnees','stepUp','walkingLunge','sideStep','hipCircle','calfRaise','armCircle','chestOpen','trunkTwist']
+  outdoor:['briskWalk','highKnees','stepUp','walkingLunge','sideStep','hipCircle','calfRaise','armCircle','chestOpen','trunkTwist'],
+  strength:['pushup','wallSit','squat','lunge','gluteBridge','plank','sidePlank','superman','reverseCrunch','calfRaise']
 };
 var SCENES = {
   desk:{label:'工位久坐救急',hint:'不出声、不出汗、不换衣',ids:[]},
   home:{label:'家里地板训练',hint:'需要一块地板或瑜伽垫',ids:[]},
-  outdoor:{label:'户外 / 通勤',hint:'走路、台阶、等车都能做',ids:[]}
+  outdoor:{label:'户外 / 通勤',hint:'走路、台阶、等车都能做',ids:[]},
+  strength:{label:'微力量训练',hint:'自重练力量，不用器械，微微出汗',ids:[]}
 };
 var FOCUS = {neck:'肩颈救急',back:'腰背舒缓',full:'全身唤醒',legs:'腿部激活'};
 var DURS  = [1,3,5];
